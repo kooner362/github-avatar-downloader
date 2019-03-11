@@ -25,6 +25,8 @@ getRepoContributors("jquery", "jquery", function(err, result) {
   result.forEach(function(contributor){
     var avatar = contributor.avatar_url;
     var filePath = 'avatar/' + contributor.login + '.jpg';
-    downloadImageByURL(avatar, filePath);
+    fs.mkdir('avatar', function(err) {
+      downloadImageByURL(avatar, filePath);
+    });
   });
 });
