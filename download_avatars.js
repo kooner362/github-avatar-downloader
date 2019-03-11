@@ -7,6 +7,7 @@ var repoName = process.argv[3];
 console.log('Welcome to the GitHub Avatar Downloader!');
 
 function getRepoContributors(repoOwner, repoName, cb) {
+  //checks whether user has inputed args
   if (!repoOwner || !repoName) {
     console.log('Usage node download_avatars.js <owner> <repo>');
     return;
@@ -31,6 +32,7 @@ getRepoContributors(repoOwner, repoName, function(err, result) {
   result.forEach(function(contributor){
     var avatar = contributor.avatar_url;
     var filePath = 'avatar/' + contributor.login + '.jpg';
+    //creates dir to download images into
     fs.mkdir('avatar', function(err) {
       downloadImageByURL(avatar, filePath);
     });
