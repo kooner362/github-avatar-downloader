@@ -16,6 +16,9 @@ function getRepoContributors(repoOwner, repoName, cb) {
   });
 }
 
+function downloadImageByURL(url, filePath) {
+  request(url).pipe(fs.createWriteStream(filePath));
+}
 
 getRepoContributors("jquery", "jquery", function(err, result) {
   console.log("Errors:", err);
