@@ -4,6 +4,7 @@
   "description": "## Problem Statement",
   "main": "index.js",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "request": "^2.88.0"
   },
   "devDependencies": {},
